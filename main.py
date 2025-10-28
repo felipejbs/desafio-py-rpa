@@ -92,7 +92,7 @@ def main() -> None:
     """
     books_data: list[dict[str, str]] = scrape_books(num_pages=5)
     save_books_data(books_data)
-    print(f"Finalizado! livros extraídos e salvos em 'data/books_data.json'")
+    print(f"Finalizado! livros extraidos e salvos em 'data/books_data.json'")
 
 
 if __name__ == "__main__":
