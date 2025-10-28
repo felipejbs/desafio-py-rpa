@@ -7,9 +7,10 @@ def get_book_data(book: HTML, session: HTMLSession) -> dict[str, str]:
     """
     Extrai os dados de um livro a partir do elemento HTML e retorna um dicionário com as informações.
     """
-    title: str = book.find('h3 a', first=True).attrs['title']
-    price: str = book.find('p.price_color', first=True).text
-    availability: str = book.find('p.instock.availability', first=True).text.strip()
+    # Extrai o título, preço e disponibilidade diretamente da listagem
+    titulo: str = book.find('h3 a', first=True).attrs['title']
+    preco: str = book.find('p.price_color', first=True).text
+    disponibilidade: str = book.find('p.instock.availability', first=True).text.strip()
 
     # Monta a URL da página do livro
     relative_link: str = book.find('h3 a', first=True).attrs['href']
@@ -43,10 +44,10 @@ def get_book_data(book: HTML, session: HTMLSession) -> dict[str, str]:
 
     # Retorna os dados do livro em um dicionário
     return {
-        'title': title,
-        'price': price,
+        'title': titulo,
+        'price': preco,
         'genre': genero,
-        'availability': availability,
+        'availability': disponibilidade,
         'avaliation': avaliacao,
         'description': descricao,
         'upc': upc,
@@ -90,8 +91,8 @@ def main() -> None:
     Função principal: extrai os dados dos livros, imprime a quantidade e salva em arquivo.
     """
     books_data: list[dict[str, str]] = scrape_books(num_pages=5)
-    print(len(books_data))
     save_books_data(books_data)
+    print(f"Finalizado! livros extraídos e salvos em 'data/books_data.json'")
 
 
 if __name__ == "__main__":
