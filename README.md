@@ -193,7 +193,7 @@ books_data = scrape_books(num_pages=5)
 
 ## Resumo
 
-As escolhas priorizaram **simplicidade, clareza e facilidade de execução** para um projeto de pequeno porte e propósito didático.  
+As escolhas priorizaram **simplicidade, clareza e facilidade de execução** para um projeto de pequeno porte e propósito de exemplo.  
 Para projetos maiores, mais robustos ou colaborativos, seria recomendado modularizar o código, e adicionar tratamento de erros
 
 ## 🧰 Possíveis Melhorias Futuras
