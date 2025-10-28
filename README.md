@@ -146,10 +146,60 @@ books_data = scrape_books(num_pages=5)
 
 ---
 
+# Escolhas Técnicas e Trade-offs
+
+## Linguagem e Bibliotecas
+
+- **Python 3.12**  
+  Escolhido por sua sintaxe moderna, tipagem opcional e ampla comunidade.
+- **requests-html**  
+  Permite scraping fácil de páginas web, com parsing HTML e suporte a JavaScript simples.  
+- **lxml**  
+  Usado como backend para parsing HTML, é rápido e eficiente.
+
+## Estrutura do Projeto
+
+- **Script único (`main.py`)**  
+  Mantém o projeto simples e fácil de entender, ideal para projetos pequenos.
+  **Trade-off:** Para projetos maiores, uma estrutura modular seria mais adequada.
+- **Pasta `data/`**  
+  Centraliza a saída dos dados, facilitando organização e acesso.
+
+## Gerenciamento de Dependências
+
+- **Pipenv**  
+  Facilita o gerenciamento de ambientes virtuais e dependências, garantindo reprodutibilidade.
+  **Trade-off:** Pipenv pode ser mais lento que o uso direto de `pip` e `requirements.txt`, mas oferece melhor isolamento.
+
+## Containerização
+
+- **Docker**  
+  Garante que o projeto rode de forma idêntica em qualquer ambiente, evitando problemas de dependências de sistema.
+
+
+## Scraping
+
+- **Percorre páginas por URL sequencial**  
+  Simples e eficiente para sites com estrutura previsível.
+  **Trade-off:** Se o site mudar a estrutura de URLs ou adicionar proteção anti-bot, o crawler pode quebrar facilmente.
+
+## Robustez
+
+- **Sem tratamento avançado de erros**  
+  O código assume que todas as páginas e elementos existem conforme esperado.
+  **Trade-off:** Para uso em produção ou scraping de sites menos estáveis, seria necessário adicionar mais validações e tratamento de exceções.
+
+---
+
+## Resumo
+
+As escolhas priorizaram **simplicidade, clareza e facilidade de execução** para um projeto de pequeno porte e propósito didático.  
+Para projetos maiores, mais robustos ou colaborativos, seria recomendado modularizar o código, e adicionar tratamento de erros
+
 ## 🧰 Possíveis Melhorias Futuras
 
 - Adicionar logs estruturados (`logging`).
-- Armazenar os dados em banco SQL (SQLite ou PostgreSQL) ou NoSQL.
+- Armazenar os dados em banco SQL (SQLite ou PostgreSQL) ou NoSQL (DynamoDB, etc.).
 - Implementar testes automatizados com `pytest`.
 
 ---
@@ -158,4 +208,4 @@ books_data = scrape_books(num_pages=5)
 
 **Felipe Jerônimo Bernardo da Silva**  
 📧 [felipejeronimobs@gmail.com]
-🚀 Projeto desenvolvido como desafio de Web Scraping com Python.
+🚀 Projeto desenvolvido como desafio de RPA/Web Scraping com Python.
